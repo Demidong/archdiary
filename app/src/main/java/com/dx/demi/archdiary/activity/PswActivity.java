@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 
 import com.dx.demi.archdiary.R;
-import com.dx.demi.archdiary.View.NinePointView;
-import com.dx.demi.archdiary.View.NineSquareView;
+import com.dx.demi.archdiary.view.NinePointView;
+import com.dx.demi.archdiary.view.NineSquareView;
 import com.dx.demi.archdiary.bean.Point;
 
 import java.io.ByteArrayInputStream;
@@ -97,7 +97,7 @@ public class PswActivity extends Activity {
                         editor.putString(PREFERENCENAME, map2String(points)).commit();
                         notice.setTextColor(Color.BLUE);
                         notice.setText("设置成功");
-                        startActivity(new Intent(PswActivity.this, MainActivity.class));
+                        startActivity(new Intent(PswActivity.this, ProjectsActivity.class));
                         finish();
                         isSetPsw = true;
                     } else {

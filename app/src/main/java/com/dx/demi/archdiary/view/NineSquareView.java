@@ -1,4 +1,4 @@
-package com.dx.demi.archdiary.View;
+package com.dx.demi.archdiary.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
