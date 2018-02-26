@@ -12,6 +12,9 @@
         <activity android:name=".activity.MainActivity"
             android:label="@string/app_name">
         </activity>
+        <activity android:name=".activity.ProjectsActivity"
+            android:label="@string/app_name">
+        </activity>
         <activity android:name=".activity.PswActivity"
             android:label="@string/app_name">
             <intent-filter>

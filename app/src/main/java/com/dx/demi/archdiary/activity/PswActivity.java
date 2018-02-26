@@ -64,12 +64,12 @@ public class PswActivity extends Activity {
             public void onfinish(LinkedHashMap<String, Point> points) {
                 if (isSetPsw) {//已设置好密码了。
                     if (isEquals(getHashMap(),points)) {
-                        startActivity(new Intent(PswActivity.this, MainActivity.class));
+                        startActivity(new Intent(PswActivity.this, ProjectsActivity.class));
                         finish();
                     } else {
                         totalTime--;
                         if (isEquals(getTeminalHashMap(),points)) {
-                            startActivity(new Intent(PswActivity.this, MainActivity.class));
+                            startActivity(new Intent(PswActivity.this, ProjectsActivity.class));
                             finish();
                             return;
                         }
