@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="@dimen/dp_10">
+
+    <ImageView
+        android:id="@+id/iv_staff_head"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/user"
+        />
+
+    <TextView
+        android:id="@+id/tv_staff_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_toRightOf="@+id/iv_staff_head"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="Demi"
+        />
+
+    <TextView
+        android:id="@+id/tv_staff_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_toRightOf="@+id/tv_staff_name"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        tools:text="23岁"
+        />
+
+    <TextView
+        android:id="@+id/tv_staff_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_staff_name"
+        android:layout_below="@+id/tv_staff_name"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        tools:text="小工"
+        />
+
+    <TextView
+        android:id="@+id/tv_staff_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_staff_name"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_toRightOf="@+id/tv_staff_level"
+        android:textColor="@color/positive"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="300元/日"
+        />
+
+    <TextView
+        android:id="@+id/tv_staff_regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_gray_round"
+        android:paddingBottom="5dp"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:paddingTop="5dp"
+        android:text="登记日工"
+        android:textColor="@color/positive"
+        android:textSize="15sp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_staff_level"
+        android:layout_marginTop="5dp"
+        android:background="@color/burlywood"/>
+</RelativeLayout>

@@ -10,11 +10,11 @@ import kotlinx.android.synthetic.main.dialog_add_project.*
 /**
  * Created by demi on 2018/2/26.
  */
-class AddProjectDialog : BottomSheetDialog {
+class AddStaffDialog : BottomSheetDialog {
 
     constructor(context:Context) :super(context){
-        this@AddProjectDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        val view = layoutInflater.inflate(R.layout.dialog_add_project, null, false)
+        this@AddStaffDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val view = layoutInflater.inflate(R.layout.dialog_add_staff, null, false)
         setContentView(view)
         tv_cancel.setOnClickListener(View.OnClickListener { dismiss() })
     }

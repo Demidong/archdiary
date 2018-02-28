@@ -20,10 +20,12 @@ class ProjectsAdapter : BaseQuickAdapter<Project, BaseViewHolder> {
       var tv_proj_host =  helper?.getView<TextView>(R.id.tv_proj_host)
       var tv_proj_state =  helper?.getView<TextView>(R.id.tv_proj_state)
       var tv_proj_des =  helper?.getView<TextView>(R.id.tv_proj_des)
+      var tv_proj_time =  helper?.getView<TextView>(R.id.tv_proj_time)
         tv_proj_name?.setText(item?.projName)
         tv_proj_host?.setText(item?.projHost)
         tv_proj_state?.setText(item?.projState)
         tv_proj_des?.setText(item?.projDescrib)
+        tv_proj_time?.setText(item?.projTime)
 
     }
 }

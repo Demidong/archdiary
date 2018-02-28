@@ -1,107 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/dp_10">
 
     <TextView
-        android:id="@+id/tv_add_proj"
+        android:id="@+id/tv_add_staff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="添加工程"
+        android:text="添加工人"
         android:textColor="@color/burlywood"
         android:textSize="20dp"
         android:textStyle="bold"
         />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_proj_name"
+        android:id="@+id/til_staff_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
-        android:layout_below="@+id/tv_add_proj"
+        android:layout_below="@+id/tv_add_staff"
         >
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_proj_name"
+            android:id="@+id/et_staff_name"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:layout_below="@+id/tv_add_proj"
+            android:layout_below="@+id/tv_add_staff"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/dp_10"
-            android:layout_toRightOf="@+id/tv_proj_name"
-            android:hint="请输入项目工程名称"
+            android:layout_toRightOf="@+id/tv_staff_name"
+            android:hint="请输入该工人姓名"
             android:textSize="12sp"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_proj_host"
+        android:id="@+id/til_staff_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til_proj_name"
+        android:layout_below="@+id/til_staff_name"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_10"
         >
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_proj_host"
+            android:id="@+id/et_staff_age"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:layout_below="@+id/tv_proj_name"
+            android:layout_below="@+id/tv_staff_name"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/dp_10"
-            android:layout_toRightOf="@+id/tv_proj_host"
-            android:hint="请输入项目发起人"
+            android:layout_toRightOf="@+id/tv_staff_host"
+            android:inputType="number"
+            android:hint="请输入该工人年龄"
             android:textSize="12sp"/>
     </android.support.design.widget.TextInputLayout>
 
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_proj_des"
+        android:id="@+id/til_staff_salary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til_proj_host"
+        android:layout_below="@+id/til_staff_age"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_10"
         >
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_proj_des"
+            android:id="@+id/et_staff_salary"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/dp_10"
-            android:layout_toRightOf="@+id/tv_proj_des"
-            android:hint="请输入项目简介"
+            android:layout_toRightOf="@+id/tv_staff_des"
+            android:hint="请输入该工人薪资（元/日）"
+            android:inputType="number"
             android:textSize="12sp"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
-        android:id="@+id/tv_proj_state"
+        android:id="@+id/tv_staff_level"
         android:layout_width="120dp"
         android:layout_height="34dp"
-        android:layout_below="@+id/til_proj_des"
+        android:layout_below="@+id/til_staff_salary"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="项目状态："
+        android:text="工人等级："
         />
 
     <Spinner
-        android:id="@+id/spinner_state"
+        android:id="@+id/spinner_level"
         android:layout_width="match_parent"
         android:layout_height="34dp"
-        android:layout_below="@+id/til_proj_des"
+        android:layout_below="@+id/til_staff_salary"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
-        android:layout_toRightOf="@+id/tv_proj_state"
-        android:entries="@array/projstate"
+        android:layout_toRightOf="@+id/tv_staff_level"
+        android:entries="@array/stafflevel"
         >
 
     </Spinner>
@@ -110,19 +111,19 @@
         android:id="@+id/tv_do"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_proj_state"
+        android:layout_below="@+id/tv_staff_level"
         android:layout_marginLeft="@dimen/dp_10"
         android:background="@drawable/shape_gray_round"
         android:gravity="center"
         android:padding="10dp"
-        android:text="开工"/>
+        android:text="确定"/>
 
     <TextView
         android:id="@+id/tv_cancel"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/tv_proj_state"
+        android:layout_below="@+id/tv_staff_level"
         android:layout_marginRight="@dimen/dp_10"
         android:background="@drawable/shape_gray_round"
         android:gravity="center"

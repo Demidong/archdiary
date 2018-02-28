@@ -24,12 +24,15 @@ public class ProjectDao extends AbstractDao<Project, Long> {
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property Id = new Property(0, long.class, "id", true, "_id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property ProjName = new Property(1, String.class, "projName", false, "projname");
-        public final static Property ProjState = new Property(2, String.class, "projState", false, "projdtate");
-        public final static Property ProjHost = new Property(3, String.class, "projHost", false, "projhost");
+        public final static Property ProjHost = new Property(2, String.class, "projHost", false, "projhost");
+        public final static Property ProjState = new Property(3, String.class, "projState", false, "projdtate");
         public final static Property ProjDescrib = new Property(4, String.class, "projDescrib", false, "projdescrib");
+        public final static Property ProjTime = new Property(5, String.class, "projTime", false, "projtime");
     }
+
+    private DaoSession daoSession;
 
 
     public ProjectDao(DaoConfig config) {
@@ -38,17 +41,19 @@ public class ProjectDao extends AbstractDao<Project, Long> {
     
     public ProjectDao(DaoConfig config, DaoSession daoSession) {
         super(config, daoSession);
+        this.daoSession = daoSession;
     }
 
     /** Creates the underlying database table. */
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"PROJECT\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"projname\" TEXT UNIQUE ," + // 1: projName
-                "\"projdtate\" TEXT," + // 2: projState
-                "\"projhost\" TEXT," + // 3: projHost
-                "\"projdescrib\" TEXT);"); // 4: projDescrib
+                "\"projhost\" TEXT," + // 2: projHost
+                "\"projdtate\" TEXT," + // 3: projState
+                "\"projdescrib\" TEXT," + // 4: projDescrib
+                "\"projtime\" TEXT);"); // 5: projTime
     }
 
     /** Drops the underlying database table. */
@@ -60,79 +65,105 @@ public class ProjectDao extends AbstractDao<Project, Long> {
     @Override
     protected final void bindValues(DatabaseStatement stmt, Project entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
  
         String projName = entity.getProjName();
         if (projName != null) {
             stmt.bindString(2, projName);
         }
  
-        String projState = entity.getProjState();
-        if (projState != null) {
-            stmt.bindString(3, projState);
-        }
- 
         String projHost = entity.getProjHost();
         if (projHost != null) {
-            stmt.bindString(4, projHost);
+            stmt.bindString(3, projHost);
+        }
+ 
+        String projState = entity.getProjState();
+        if (projState != null) {
+            stmt.bindString(4, projState);
         }
  
         String projDescrib = entity.getProjDescrib();
         if (projDescrib != null) {
             stmt.bindString(5, projDescrib);
+        }
+ 
+        String projTime = entity.getProjTime();
+        if (projTime != null) {
+            stmt.bindString(6, projTime);
         }
     }
 
     @Override
     protected final void bindValues(SQLiteStatement stmt, Project entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
  
         String projName = entity.getProjName();
         if (projName != null) {
             stmt.bindString(2, projName);
         }
  
-        String projState = entity.getProjState();
-        if (projState != null) {
-            stmt.bindString(3, projState);
-        }
- 
         String projHost = entity.getProjHost();
         if (projHost != null) {
-            stmt.bindString(4, projHost);
+            stmt.bindString(3, projHost);
+        }
+ 
+        String projState = entity.getProjState();
+        if (projState != null) {
+            stmt.bindString(4, projState);
         }
  
         String projDescrib = entity.getProjDescrib();
         if (projDescrib != null) {
             stmt.bindString(5, projDescrib);
         }
+ 
+        String projTime = entity.getProjTime();
+        if (projTime != null) {
+            stmt.bindString(6, projTime);
+        }
+    }
+
+    @Override
+    protected final void attachEntity(Project entity) {
+        super.attachEntity(entity);
+        entity.__setDaoSession(daoSession);
     }
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     @Override
     public Project readEntity(Cursor cursor, int offset) {
         Project entity = new Project( //
-            cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // projName
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // projState
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // projHost
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // projDescrib
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // projHost
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // projState
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // projDescrib
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // projTime
         );
         return entity;
     }
      
     @Override
     public void readEntity(Cursor cursor, Project entity, int offset) {
-        entity.setId(cursor.getLong(offset + 0));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setProjName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setProjState(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setProjHost(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setProjHost(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setProjState(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setProjDescrib(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setProjTime(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     @Override
@@ -152,7 +183,7 @@ public class ProjectDao extends AbstractDao<Project, Long> {
 
     @Override
     public boolean hasKey(Project entity) {
-        throw new UnsupportedOperationException("Unsupported for entities with a non-null key");
+        return entity.getId() != null;
     }
 
     @Override

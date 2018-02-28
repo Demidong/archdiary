@@ -2,11 +2,11 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="10dp"
-    android:paddingBottom="10dp"
-    android:paddingRight="10dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <TextView
         android:id="@+id/tv_proj_name"
@@ -14,8 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         tools:text="大源冲村篮球场"
         />
 
@@ -24,15 +25,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_proj_name"
-        android:text="工程状态："/>
+        android:text="工程状态："
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_proj_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_proj_name"
-        android:layout_toRightOf="@+id/tv_proj_state_des"
-        android:textColor="@color/darkblue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         tools:text="在建"/>
 
     <TextView
@@ -40,30 +44,65 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_proj_state_des"
-        android:text="工程发起人："/>
+        android:text="工程发起人："
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tv_proj_host"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_proj_state_des"
-        android:layout_toRightOf="@+id/tv_proj_host_des"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         tools:text="董城乡"
+        />
+
+    <TextView
+        android:id="@+id/tv_proj_time_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_proj_host_des"
+        android:text="开工时间："
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_proj_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_proj_host_des"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="2017年2月21日"
         />
 
     <TextView
         android:id="@+id/tv_proj_des_des"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_proj_host_des"
-        android:text="工程简介："/>
+        android:layout_below="@+id/tv_proj_time"
+        android:text="工程简介："
+        android:textSize="16sp"/>
+
     <TextView
         android:id="@+id/tv_proj_des"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_proj_host_des"
+        android:layout_below="@+id/tv_proj_time"
+        android:layout_centerHorizontal="true"
         android:layout_toRightOf="@+id/tv_proj_des_des"
-        tools:text="这个项目由村中多人捐款修建。"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="这个项目由村中多人捐款修建dsadsadssad。"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_proj_des"
+        android:layout_marginTop="2dp"
+        android:background="@color/burlywood"/>
 </RelativeLayout>
